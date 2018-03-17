@@ -1,0 +1,26 @@
+@startuml "Request to web page"
+autonumber
+note left of Browser #aqua
+    Example of request
+    to web application
+end note
+actor Browser
+boundary LoadBalancer
+Browser -> LoadBalancer: Request url to app
+LoadBalancer -> AppServer: Redirect url to app server
+boundary ProxyCache
+database Cache
+database Db
+AppServer -> ProxyCache: query to database
+ProxyCache -> Cache: check cache
+alt Cache found
+Cache -> ProxyCache: return result
+else Cache not found
+Cache -> ProxyCache: result not found
+ProxyCache -> Db: query to database
+Db -> ProxyCache:  return result
+end
+ProxyCache -> AppServer: return result
+AppServer -> LoadBalancer: return content of page
+LoadBalancer -> Browser : return content of page
+@enduml

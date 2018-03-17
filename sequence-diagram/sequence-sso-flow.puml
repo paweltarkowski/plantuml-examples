@@ -1,0 +1,19 @@
+@startuml Service Provider Init flow
+scale 2
+actor Browser
+note left of Browser #aqua
+    Example of SSO SAML
+    Service Provider Init flow
+end note
+autonumber
+Browser -> ServiceProvider : Request to SP url
+ServiceProvider -> IdentityProvider : SAML 2.0 Post AuthN Request
+IdentityProvider -> Browser : Login page
+Browser -> IdentityProvider: Submit credentials
+alt Successful login
+IdentityProvider -> ServiceProvider : IDP Post SAMLResponse to SP consumer url 
+ServiceProvider -> Browser : SP application
+else Failed login
+IdentityProvider -> Browser: <color #red>Error page</color>
+end
+@enduml
