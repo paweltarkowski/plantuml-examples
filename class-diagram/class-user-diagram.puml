@@ -1,0 +1,49 @@
+@startuml class-user-diagram
+package "com.example" {
+     package "com.example.model" {
+        class User {
+            - String: Name
+            - String: Surname
+            + String getName()
+            + void setName(String)
+            + String getSurname()
+            + void setSurname(String)
+        }
+
+        class UserDetails {
+            - int Age
+            + int getAge()
+            + void setAge(int)
+        }
+
+        User <|-- UserDetails
+     }
+
+    package "com.example.repository"{
+        interface JpaRepository
+        interface UserRepository{
+            List<User> findUsers()
+        }
+
+        JpaRepository <|--  UserRepository
+    }
+
+    package "com.example.service "{
+        class UserService{
+            - UserRepository repository
+            + List<User> findUsers()
+        }
+
+         UserService o-- UserRepository
+    }
+
+    package "com.example.controller "{
+        class UserController{
+            -UserService service
+            +List<User> findUsers()
+        }
+
+        UserController o-- UserService
+    }
+}
+@enduml
