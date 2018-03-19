@@ -1,0 +1,21 @@
+@startuml Search
+:User: <<Browser>> as User
+(Search) as Search
+(View results) as Results
+(Print) as Print
+(Export results) as Export
+(Export to pdf) as ExportPdf
+(Export to docx) as ExportDocx
+(Export to csv) as ExportCsv
+skinparam packageStyle rectangle
+
+User --> Search
+Search .> Results: <<include>>
+Print ..> Results : <<extend>>
+Results <.. Export: <<extend>>
+Export <.. ExportPdf: <<extend>>
+Export <.. ExportDocx: <<extend>>
+Export <.. ExportCsv: <<extend>>
+
+
+@enduml
