@@ -1,0 +1,34 @@
+@startuml "Store Component Diagram"
+
+package Bus{
+ [CommonBus]
+ [Store] <..> Bus: <<use>>
+ [Delivery] <..> Bus: <<use>>
+ [DataAccess] <..> Bus: <<use>>
+}
+
+package Delivery {
+ [DeliveryService] --> DeliveryEndpoint: <<use>>
+}
+
+package CommonModel{
+[Product] - [Order]
+[Order] - [Parcel]
+CommonModel <... Store : <<use>>
+CommonModel <... DataAccess: <<use>>
+CommonModel <... Delivery: <<use>>
+}
+
+package Store {
+[StoreService]
+}
+
+package DataAccess{
+database "DB"{
+}
+[DataAccessProxy] --> DB: <<use>>
+[DataAccessProxy] -> [Cache]: <<use>>
+
+}
+
+@enduml
