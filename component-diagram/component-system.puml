@@ -1,0 +1,18 @@
+@startuml "System component diagram"
+frame "System component diagram"{
+    [Delivery]
+
+    [Model]
+    [Model] <... [Store] : <<use>>
+    [Model] <... [Delivery] : <<use>>
+    [Model] <... [Mail] : <<use>>
+    [Model] <... [Monitoring] : <<use>>
+
+    database DB {
+        [Store] ...> DB : <<use>>
+        [Delivery] ...> DB : <<use>>
+        [Mail] ...> DB : <<use>>
+        [Monitoring] ...> DB : <<use>>
+    }
+}
+@enduml

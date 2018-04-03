@@ -1,0 +1,34 @@
+@startuml "System component with common bus diagram"
+frame "System component with common bus diagram"{
+
+component CommonBus{
+ [Store] <..> CommonBus: <<use>>
+ [Delivery] <..> CommonBus: <<use>>
+ [DB] <..> CommonBus: <<use>>
+ [Monitoring] <..> CommonBus: <<use>>
+ [Mail] <..> CommonBus: <<use>>
+}
+
+component Delivery {
+}
+
+component Model{
+Model <... Store : <<use>>
+Model <... Delivery: <<use>>
+Model <... Monitoring: <<use>>
+Model <... Mail: <<use>>
+}
+
+component Store {
+}
+
+database DB{
+}
+
+component Monitoring{
+}
+
+component Mail{
+}
+
+@enduml
