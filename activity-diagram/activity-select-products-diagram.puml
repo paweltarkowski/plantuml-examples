@@ -1,0 +1,19 @@
+@startuml "Select products to cart"
+note
+"Select products to cart"
+end note
+start
+repeat
+:Choose product;
+if (out of stock?) then (yes)
+:Show no item message;
+else
+:System present price/availability;
+if (wanted?) then (yes)
+:Click "add to Cart";
+else (no)
+endif
+endif
+repeat while (other product needed?)
+stop
+@enduml
