@@ -1,0 +1,11 @@
+@startuml
+node gateway
+node box1
+node box2
+node box3
+node box4
+gateway -- box1
+gateway -- box2
+gateway -- box3
+gateway -- box4
+@enduml
