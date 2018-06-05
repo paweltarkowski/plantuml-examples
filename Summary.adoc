@@ -1,0 +1,29 @@
+# Examples of diagrams generated using plantuml
+
+## Sequence
+
+### Sso flow
+image:sequence-diagram/sequence-sso-flow.png[]
+
+### Request to web page
+image:sequence-diagram/sequence-go_to_web_page.png[]
+
+## Component
+
+### System component example
+image:component-diagram/component-system.png[]
+
+### System component example with additional component
+image:component-diagram/component-system-with-common-bus.png[]
+
+## Class
+image:class-diagram/class-user-diagram.png[]
+
+## Activity
+image:activity-diagram/activity-select-products-diagram.png[]
+
+## Deployment
+image:deployment-diagram/deployment-diagram.png[]
+
+## Usecase
+image:usecase-diagram/usecase-search-diagram.png[]
