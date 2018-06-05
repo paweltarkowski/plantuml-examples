@@ -1,4 +1,5 @@
 # Examples of diagrams generated using plantuml
+:toc:
 
 ## Sequence
 
