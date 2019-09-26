@@ -6,4 +6,6 @@ Project to present how plantuml can be used in real examples.
  - install graphviz from page https://www.graphviz.org/download/
  - additional: install AsciiDoc plugin to read documentation
 
-
+# Examples
+ - All examples are presetned in Summary.adoc
+ - Project is splitted into folder which contains plantUML examples for many of diagrams types
